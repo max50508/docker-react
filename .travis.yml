@@ -4,3 +4,6 @@ services:
 
 before_install:
   - docker build -t max/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run max/docker-react npm run test -- --coverage
