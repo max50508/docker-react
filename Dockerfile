@@ -6,6 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 #                   <build檔案位置>  <複製到nginx container的檔案位置>
 

@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run max/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "<地區>"
+  app: "<app name>"
+  env: "Docker_env"
+  bucket_name: <去service的S3找>
+  bucket_path: <app name>
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
